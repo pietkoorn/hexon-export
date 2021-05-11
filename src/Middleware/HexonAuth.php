@@ -8,8 +8,8 @@ use Illuminate\Http\Request;
 class HexonAuth
 {
     protected bool $enabled;
-    protected string $username;
-    protected string $password;
+    protected ?string $username;
+    protected ?string $password;
 
     public function __construct() {
         $this->enabled = config('hexon-export.auth.enabled', false);
@@ -26,8 +26,8 @@ class HexonAuth
      */
     public function handle($request, Closure $next)
     {
-        if(app()->environment('production') && $enabled) {
-            if($request->getUser() != $username && $request->getPassword() != $password) {
+        if(app()->environment('production') && $this->enabled) {
+            if($request->getUser() != $this->username && $request->getPassword() != $this->password) {
                 $headers = array('WWW-Authenticate' => 'Basic');
                 return response('Unauthorized', 401, $headers);
             }
