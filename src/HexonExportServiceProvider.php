@@ -2,7 +2,7 @@
 
 namespace RoyScheepens\HexonExport;
 
-use RoyScheepens\HexonExport\Middleware\VerifyIpWhitelist;
+use RoyScheepens\HexonExport\Middleware\HexonAuth;
 
 use RoyScheepens\HexonExport\Models\Occasion;
 use RoyScheepens\HexonExport\Models\OccasionImage;
@@ -31,7 +31,7 @@ class HexonExportServiceProvider extends ServiceProvider
 
         $routeConfig = [
             'namespace' => 'RoyScheepens\HexonExport\Controllers',
-            'middleware' => [VerifyIpWhitelist::class],
+            'middleware' => [HexonAuth::class],
         ];
 
         // todo: add to api group?

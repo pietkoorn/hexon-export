@@ -4,17 +4,18 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Hexon IP Whitelist
+    | HTTP Basic Auth Credentials
     |--------------------------------------------------------------------------
     |
-    | The IP addresses Hexon uses to POST data to your server are whitelisted
-    | here. The whitelist is only checked when in production.
+    | The array of users with hashed username and password credentials which are
+    | used when logging in with HTTP basic authentication.
     |
     */
 
-    'ip_whitelist' => [
-        '82.94.237.8',
-        '82.94.240.8'
+    'auth' => [
+        'enabled' => env('HEXON_AUTH'),
+        'username' => env('HEXON_USER'),
+        'password' => env('HEXON_PASSWORD')
     ],
 
     /*
