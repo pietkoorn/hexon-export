@@ -14,7 +14,7 @@ return [
 
     'auth' => [
         'enabled' => env('HEXON_AUTH'),
-        'username' => env('HEXON_USER'),
+        'username' => env('HEXON_USERNAME'),
         'password' => env('HEXON_PASSWORD')
     ],
 
